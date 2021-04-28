@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -46,7 +47,7 @@ public class PostControllerTest {
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get(POSTS_URL)
-                .accept(MediaType.APPLICATION_JSON);
+                .accept(MediaType.TEXT_HTML);
 
         mvc.perform(request)
                 .andExpect(status().isOk())
@@ -55,6 +56,28 @@ public class PostControllerTest {
                 .andExpect(content().string(containsString(posts.get(0).getTitle())))
                 .andExpect(content().string(containsString(posts.get(0).getText())))
                 .andExpect(content().string(containsString(posts.get(0).getReleaseDate().toString())));
+    }
+
+    @Test
+    @DisplayName("Must return a Post view with its given ID")
+    public void getPostDetailsTest() throws Exception {
+        Post post = createNewPost().get(0);
+
+        Long generic_id = 1L;
+
+        BDDMockito.given(postService.findById(generic_id)).willReturn(Optional.of(post));
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get(POSTS_URL.concat("/" + generic_id))
+                .accept(MediaType.TEXT_HTML);
+
+        mvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(view().name("postDetails"))
+                .andExpect(content().string(containsString(post.getAuthor())))
+                .andExpect(content().string(containsString(post.getTitle())))
+                .andExpect(content().string(containsString(post.getText())))
+                .andExpect(content().string(containsString(post.getReleaseDate().toString())));
     }
 
     private List<Post> createNewPost() {
