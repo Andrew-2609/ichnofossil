@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -95,9 +96,10 @@ public class PostControllerTest {
 
     @Test
     @DisplayName("Must return the New Post view")
+    @WithMockUser(username = "ndrewcoding", password = "ichnofossil", roles = "ADMIN")
     public void getPostFormTest() throws Exception {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .get(POSTS_URL.concat("/new"))
+                .get("/new")
                 .accept(MediaType.TEXT_HTML);
 
         mvc.perform(request)
@@ -106,14 +108,27 @@ public class PostControllerTest {
     }
 
     @Test
+    @DisplayName("Must redirect to login form when wrong credentials are given")
+    public void getPostFormErrorRedirectsTest() throws Exception {
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get("/new")
+                .accept(MediaType.TEXT_HTML);
+
+        mvc.perform(request)
+                .andExpect(status().isFound())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
+
+    @Test
     @DisplayName("Must successfully create a new Post")
+    @WithMockUser(username = "ndrewcoding", password = "ichnofossil", roles = "ADMIN")
     public void createPostTest() throws Exception {
         Post post = createNewPostList().get(0);
 
         BDDMockito.given(postService.save(Mockito.any(Post.class))).willReturn(post);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .post(POSTS_URL.concat("/new"))
+                .post("/new")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .param("title", post.getTitle())
                 .param("author", post.getAuthor())
@@ -122,6 +137,23 @@ public class PostControllerTest {
         mvc.perform(request)
                 .andExpect(status().isFound())
                 .andExpect(view().name("redirect:/posts"));
+    }
+
+    @Test
+    @DisplayName("Must redirect to /new when creating a Post with insufficient params")
+    @WithMockUser(username = "ndrewcoding", password = "ichnofossil", roles = "ADMIN")
+    public void createPostErrorRedirectsTest() throws Exception {
+        Post post = createNewPostList().get(0);
+
+        BDDMockito.given(postService.save(Mockito.any(Post.class))).willReturn(post);
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post("/new")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE);
+
+        mvc.perform(request)
+                .andExpect(status().isFound())
+                .andExpect(view().name("redirect:/new"));
     }
 
     private List<Post> createNewPostList() {
