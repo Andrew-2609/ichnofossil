@@ -1,0 +1,12 @@
+body {
+    background-color: lightgoldenrodyellow;
+    font-family: "Times New Roman", serif;
+}
+
+#titleIchnofossil {
+    font-family: 'Pacifico', cursive;
+}
+
+#contact-footer > p > i {
+    vertical-align: middle;
+}
