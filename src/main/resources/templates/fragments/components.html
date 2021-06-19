@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
+<!-- Header -->
+<header th:fragment="header">
+    <nav class="navbar navbar-dark bg-dark mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src=""
+                     alt="Ichnofossil Logo" width="30" height="24"
+                     class="d-inline-block align-text-top">
+                Ichnofossil
+            </a>
+        </div>
+    </nav>
+</header>
+
 <!-- Footer -->
 <footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted pt-1">
     <section class="">
