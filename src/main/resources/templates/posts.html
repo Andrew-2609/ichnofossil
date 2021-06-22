@@ -34,7 +34,12 @@
                 <p class="card-subtitle mb-2 text-muted">
                     <span th:text="${post.getAuthor()}"></span> |
                     <span th:text="${post.getReleaseDate()}"></span> |
-                    <span th:text="${post.getLanguage()}"></span>
+                    <span th:switch="${post.getLanguage()}">
+                        <span th:case="Português">🇧🇷</span>
+                        <span th:case="English">🇺🇸</span>
+                        <span th:case="Deutsch">🇩🇪</span>
+                        <span th:case="*" th:text="${post.getLanguage()}"></span>
+                    </span>
                 </p>
 
                 <a th:href="@{/posts/{id}(id=${post.getId()})}"><p class="card-title h4"><span
