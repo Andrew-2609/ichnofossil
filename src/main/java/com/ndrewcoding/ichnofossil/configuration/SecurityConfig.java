@@ -14,7 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] AUTH_LIST = {"/", "/posts", "/posts/{id}"};
+    private static final String[] AUTH_LIST = {"/", "/posts", "/posts/{id}", "/css/**", "/images/**"};
 
     @Bean
     PasswordEncoder passwordEncoder() {
