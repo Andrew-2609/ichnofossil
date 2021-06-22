@@ -32,8 +32,9 @@
         <div class="card shadow-sm bg-white rounded mt-3" th:each="post : ${postPage}">
             <div class="card-body">
                 <p class="card-subtitle mb-2 text-muted">
-                    <span th:text="${post.getAuthor()}"></span>
-                    <span th:text="${post.getReleaseDate()}"></span>
+                    <span th:text="${post.getAuthor()}"></span> |
+                    <span th:text="${post.getReleaseDate()}"></span> |
+                    <span th:text="${post.getLanguage()}"></span>
                 </p>
 
                 <a th:href="@{/posts/{id}(id=${post.getId()})}"><p class="card-title h4"><span

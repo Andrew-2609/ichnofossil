@@ -24,6 +24,8 @@ public class Post {
     private String title;
     @NotBlank
     private String author;
+    @NotBlank
+    private String language;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
     @NotBlank

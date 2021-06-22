@@ -39,16 +39,22 @@
             <div th:include="messageValidation"></div>
             <form method="POST">
                 <div class="row gx-3">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                             <label for="title">Post Title *</label>
                             <input type="text" class="form-control" name="title" id="title" required/>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                             <label for="author">Post Author *</label>
                             <input type="text" class="form-control" name="author" id="author" required/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="language">Post Language *</label>
+                            <input type="text" class="form-control" name="language" id="language" required/>
                         </div>
                     </div>
                 </div>
