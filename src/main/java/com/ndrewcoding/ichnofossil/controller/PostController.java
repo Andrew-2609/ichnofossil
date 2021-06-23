@@ -30,6 +30,11 @@ public class PostController {
 
     private final PostService postService;
 
+    @GetMapping("/")
+    public ModelAndView getMainPage() {
+        return new ModelAndView("mainPage");
+    }
+
     @GetMapping("/posts")
     public ModelAndView getPosts(@RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
         ModelAndView modelAndView = new ModelAndView("posts");
