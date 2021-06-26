@@ -23,6 +23,18 @@
 </head>
 <body>
 <main id="main-page">
+    <div class="container-fluid row gx-0 text-center pt-5" id="main-page-languages">
+        <div class="col-4">
+            <a href="/?lang=pt" th:href="@{/(lang=pt)}">🇧🇷</a>
+        </div>
+        <div class="col-4">
+            <a href="/?lang=en" th:href="@{/(lang=en)}">🇺🇸</a>
+        </div>
+        <div class="col-4">
+            <a href="/?lang=de" th:href="@{/(lang=de)}">🇩🇪</a>
+        </div>
+    </div>
+
     <div id="main-content">
         <h2>
             <span th:text="#{greetings.title}"></span>

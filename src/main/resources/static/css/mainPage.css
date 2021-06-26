@@ -21,6 +21,15 @@ body {
     text-align: center;
 }
 
+#main-page-languages {
+    width: 10rem;
+    margin: auto;
+}
+
+#main-page-languages a {
+    text-decoration: none;
+}
+
 #enter-site {
     margin-top: 1rem;
     font-size: 1.5rem;
