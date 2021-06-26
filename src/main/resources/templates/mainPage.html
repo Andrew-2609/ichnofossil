@@ -24,12 +24,17 @@
 <body>
 <main id="main-page">
     <div id="main-content">
-        <h2>Hello, there!<br/>Welcome to Ichnofossil!</h2>
-        <a href="/posts" th:href="@{/posts}" class="btn px-5" id="enter-site">Enter</a>
+        <h2>
+            <span th:text="#{greetings.title}"></span>
+            <br/>
+            <span th:text="#{greetings.subtitle}"></span>
+        </h2>
+
+        <a href="/posts" th:href="@{/posts}" class="btn px-5" id="enter-site" th:text="#{enterButton}"></a>
     </div>
 </main>
 <footer id="footer-main" class="text-center">
-    <p><a href="https://www.linkedin.com/in/andrew-2609/" target="_blank" id="link-me">by: Andrew Monteiro</a></p>
+    <p><a href="https://www.linkedin.com/in/andrew-2609/" target="_blank" id="link-me" th:text="#{by}"></a></p>
 </footer>
 </body>
 </html>

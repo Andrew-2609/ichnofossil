@@ -20,8 +20,8 @@
 </head>
 <body>
 <section id="main-error-section" class="container text-center">
-    <h2 id="main-error-title">I'm sorry, but you are about 500 million years away from home.</h2>
-    <a href="/posts" th:href="@{/posts}" id="btn-back-error" class="btn mt-5">Back on track</a>
+    <h2 id="main-error-title" th:text="#{error.internalServer.title}"></h2>
+    <a href="/posts" th:href="@{/posts}" id="btn-back-error" class="btn mt-5" th:text="#{button.back.text}"></a>
 </section>
 </body>
 </html>

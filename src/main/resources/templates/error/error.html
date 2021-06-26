@@ -20,10 +20,11 @@
 </head>
 <body>
 <section id="main-error-section" class="container text-center">
-    <h2 id="main-error-title">How did you get in here? That's impressive!</h2>
-    <a href="https://www.linkedin.com/in/andrew-2609/" class="btn btn-outline-success mt-4">Contact me</a>
+    <h2 id="main-error-title" th:text="#{error.unknown.title}"></h2>
+    <a href="https://www.linkedin.com/in/andrew-2609/" class="btn btn-outline-success mt-4"
+       th:text="#{button.contact.text}"></a>
     <br/>
-    <a href="/posts" th:href="@{/posts}" id="btn-back-error" class="btn mt-2">Back on track</a>
+    <a href="/posts" th:href="@{/posts}" id="btn-back-error" class="btn mt-2" th:text="#{button.back.text}"></a>
 </section>
 </body>
 </html>
