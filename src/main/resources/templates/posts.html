@@ -44,10 +44,13 @@
                     </span>
                 </p>
 
-                <a th:href="@{/posts/{id}(id=${post.getId()})}"><p class="card-title h4"><span
-                        th:text="${post.getTitle()}"></span></p></a>
+                <a th:href="@{/posts/{id}(id=${post.getId()})}" id="postTitle">
+                    <p class="card-title h4">
+                        <span th:text="${post.getTitle()}"></span>
+                    </p>
+                </a>
 
-                <p class="card-text"><span th:utext="${#strings.abbreviate(post.getText(), 400)}"></span></p>
+                <p class="card-text"><span th:utext="${#strings.abbreviate(post.getText(), 350)}"></span></p>
             </div>
         </div>
 

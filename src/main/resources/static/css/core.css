@@ -3,12 +3,23 @@ body {
     font-family: "Times New Roman", serif;
 }
 
-#titleIchnofossil {
+.pacificoFont {
     font-family: 'Pacifico', cursive;
 }
 
 #header-languages-container a {
     text-decoration: none;
+}
+
+#postTitle {
+    font-family: 'Pacifico', cursive;
+    color: #99742f;
+    transition: all 0.25s ease;
+}
+
+#postTitle:hover {
+    color: #d2a652;
+    transition: all 0.25s ease;
 }
 
 #contact-footer > p > i {
