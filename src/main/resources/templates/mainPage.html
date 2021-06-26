@@ -42,11 +42,21 @@
             <span th:text="#{greetings.subtitle}"></span>
         </h2>
 
-        <a href="/posts" th:href="@{/posts}" class="btn px-5" id="enter-site" th:text="#{enterButton}"></a>
+        <a href="/posts" th:href="@{/posts}" class="btn px-5 css-transitions-only-after-page-load" id="enter-site"
+           th:text="#{enterButton}"></a>
     </div>
 </main>
 <footer id="footer-main" class="text-center">
     <p><a href="https://www.linkedin.com/in/andrew-2609/" target="_blank" id="link-me" th:text="#{by}"></a></p>
 </footer>
+<script>
+    $(document).ready(function () {
+        $(".css-transitions-only-after-page-load").each(function (index, element) {
+            setTimeout(function () {
+                $(element).removeClass("css-transitions-only-after-page-load")
+            }, 10);
+        });
+    });
+</script>
 </body>
 </html>

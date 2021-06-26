@@ -61,3 +61,12 @@ body {
     text-decoration: none;
     color: #9aa9b9;
 }
+
+/*Stop Transition on Page load*/
+.css-transitions-only-after-page-load * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
