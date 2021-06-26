@@ -7,6 +7,10 @@ body {
     font-family: 'Pacifico', cursive;
 }
 
+#header-languages-container a {
+    text-decoration: none;
+}
+
 #contact-footer > p > i {
     vertical-align: middle;
 }
