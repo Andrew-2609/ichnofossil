@@ -35,7 +35,7 @@
         <article>
             <p class="card-title h1 pacificoFont"><span th:text="${post.getTitle()}"></span></p>
 
-            <div class="card-subtitle mt-3 mb-4 text-muted" id="post-info">
+            <div class="card-subtitle mt-3 mb-4 text-muted row" id="post-info">
                 <p>
                     <i class="material-icons">person_outline</i>
                     <span th:text="${post.getAuthor()}"></span>
@@ -44,10 +44,15 @@
                     <i class="material-icons">date_range</i>
                     <span th:text="${post.getReleaseDate()}"></span>
                 </p>
-                <p>
+                <p class="col-lg-6 col-md-6 col-sm-6 col-6">
                     <i class="material-icons">language</i>
                     <span th:text="${post.getLanguage()}"></span>
                 </p>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="post-tags">
+                    <span>#aws</span>
+                    <span>#cloud</span>
+                    <span>#certification</span>
+                </div>
             </div>
 
             <section>

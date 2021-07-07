@@ -29,3 +29,13 @@ body {
 #post-info > p > i {
     vertical-align: middle;
 }
+
+#post-tags {
+    text-align: right;
+}
+
+#post-tags span {
+    background-color: #c4c3a6;
+    padding: 0.25rem 0.125rem;
+    border-radius: 5px;
+}
