@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -76,8 +77,21 @@ public class PostController {
             //noinspection SpringMVCViewInspection
             return "redirect:/new";
         }
+
+        String tags = Objects.requireNonNull(result.getRawFieldValue("tags")).toString();
+        String[] tag = handleTags(tags);
+
         post.setReleaseDate(LocalDate.now());
+        post.setTags(List.of(tag));
+
         postService.save(post);
+
         return "redirect:/posts";
+    }
+
+    private String[] handleTags(String tags) {
+        tags = tags.replace("[", "").replace("]", "");
+
+        return tags.split(";");
     }
 }

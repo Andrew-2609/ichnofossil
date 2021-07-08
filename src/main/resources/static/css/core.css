@@ -22,6 +22,10 @@ body {
     transition: all 0.25s ease;
 }
 
+.posts-page-tags {
+    font-size: 0.9rem;
+}
+
 #contact-footer > p > i {
     vertical-align: middle;
 }
@@ -35,7 +39,8 @@ body {
 }
 
 #post-tags span {
-    background-color: #c4c3a6;
-    padding: 0.25rem 0.125rem;
+    background-color: #e7e6be;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.125rem;
     border-radius: 5px;
 }

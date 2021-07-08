@@ -49,9 +49,7 @@
                     <span th:text="${post.getLanguage()}"></span>
                 </p>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="post-tags">
-                    <span>#aws</span>
-                    <span>#cloud</span>
-                    <span>#certification</span>
+                    <span th:each="tag : ${post.getTags()}" th:text="${tag}"></span>
                 </div>
             </div>
 

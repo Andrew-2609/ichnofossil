@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_POST")
@@ -31,4 +32,6 @@ public class Post {
     @NotBlank
     @Lob
     private String text;
+    @ElementCollection
+    private List<String> tags;
 }

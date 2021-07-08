@@ -24,7 +24,7 @@
 <body>
 <div th:insert="fragments/components :: header"></div>
 <section>
-    <div class="container pb-2" style="width: 80%">
+    <div class="container pb-2" style="width: 85%">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">Posts</li>
@@ -51,6 +51,8 @@
                 </a>
 
                 <p class="card-text"><span th:utext="${#strings.abbreviate(post.getText(), 350)}"></span></p>
+
+                <span th:each="tag : ${post.getTags()}" th:text="${tag}" class="px-1 fst-italic posts-page-tags"></span>
             </div>
         </div>
 
