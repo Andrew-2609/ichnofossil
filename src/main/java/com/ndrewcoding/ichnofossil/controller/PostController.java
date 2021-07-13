@@ -54,6 +54,8 @@ public class PostController {
             modelAndView.addObject("pageNumbers", pageNumbers);
         }
 
+        List<Post> postsByTag = postService.findPostsByTag(List.of("#springboot"));
+
         return modelAndView;
     }
 
